@@ -9,7 +9,8 @@ import { WikiService } from './wiki.service';
 export class AppComponent {
   constructor(private wikipedia: WikiService) {}
   onTerm(term: string) {
-    const result = this.wikipedia.search(term);
-    console.log(result);
+    this.wikipedia.search(term).subscribe((response) => {
+      console.log(response);
+    });
   }
 }
